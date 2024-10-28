@@ -13,6 +13,9 @@ class Address(models.Model):
     town = models.CharField(max_length=100)
     house_number = models.IntegerField()
 
+    class Meta:
+        verbose_name_plural = "Addresses"
+
     def __str__(self):
         return f"{self.street}-{self.house_number}-{self.town}"
 
