@@ -1,0 +1,17 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=PyCharm
+
+### GET Owners
+GET http://localhost:8000/api/v1/owners/
+
+### Add new Owner
+POST http://localhost:8000/api/v1/owners/
+content-type: application/json
+
+  {
+    "first_name": "test-2",
+    "last_name": "Owner-2",
+    "email": "testing2@gmail.com",
+    "phone_number": "0788001123"
+  }
