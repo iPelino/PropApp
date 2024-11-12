@@ -1,12 +1,14 @@
+@base-url = http://localhost:8000/api/v1
 ### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=PyCharm
+
+GET http://localhost:8000/test/products
+Authorization: basic
 
 ### GET Owners
-GET http://localhost:8000/api/v1/owners/
+GET {{base-url}}/owners/
 
 ### Add new Owner
-POST http://localhost:8000/api/v1/owners/
+POST {{base-url}}/owners/
 content-type: application/json
 
   {
@@ -15,3 +17,7 @@ content-type: application/json
     "email": "testing2@gmail.com",
     "phone_number": "0788001123"
   }
+
+### GET Properties
+
+GET {{base-url}}/properties/
