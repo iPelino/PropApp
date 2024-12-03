@@ -1,17 +1,17 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from properties.models import Property
+from properties.models import Property, Owner
 
 
 def property_list(request):
     p = Property.objects.all()
-    return render(request,
-                  "properties/property_list.html",
-                  {"properties": p})
+    return render(request, "properties/property_list.html", {"properties": p})
 
-def testview():
-    pass
+
+def owner_list(request):
+    owners = Owner.objects.all()
+    return render(request, "properties/owner_list.html", {"owners": owners})
 
 
 def about(request):
