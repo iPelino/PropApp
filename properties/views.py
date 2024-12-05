@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from properties.models import Property, Owner
+from properties.models import Owner, Property
 
 
 def property_list(request):

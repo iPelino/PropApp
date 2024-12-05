@@ -8,6 +8,20 @@ class TimeStampedModel(models.Model):
     class Meta:
         abstract = True
 
+
+class Contact(TimeStampedModel):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
+
+    class Meta:
+        verbose_name = "Contact"
+        verbose_name_plural = "Contacts"
+
+    def __str__(self):
+        return self.name
+
+
 class Product(TimeStampedModel):
     name = models.CharField(max_length=255)
     description = models.TextField()

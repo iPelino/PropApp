@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Home
+{% endblock %}
+
+{% block main %}
+    <section class="container-fluid py-5 col-8">
+        <form class="form-search container mt-5" action="{% url 'home' %}" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" name="q" placeholder="Search for properties" aria-label="Search for properties" aria-describedby="button-addon2">
+{#                <button class="btn btn-primary" type="submit" id="button-addon2">Search</button>#}
+            </div>
+        </form>
+    </section>
+    <section class="container-fluid">
+        <div class="row my-2">
+            {% for property in properties %}
+            <div class="col-md-4 col-sm-12 col-xs-12 my-1">
+                <div class="card">
+                    {% for image in property.images.all %}
+                        {% if image.is_main %}
+                            <img src="{{ image.image.url }}" class="card-img-top" alt="{{ property.name }}">
+                        {% endif %}
+                    {% endfor %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ property.name }}</h5>
+                        <p class="card-text">
+                            <img src="{% static 'images/location.png' %}" alt="" style="width: 24px; height: 24px">
+                            {{ property.address.town }}</p>
+                        <a href="#" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+{#            <div class="col-md-4 col-sm-12 col-xs-12 my-1">#}
+{#                <div class="card">#}
+{#                    <img src="{% static 'images/house2.jpg' %}" class="card-img-top" alt="...">#}
+{#                    <div class="card-body">#}
+{#                        <h5 class="card-title">House 2</h5>#}
+{#                        <p class="card-text">This is a house</p>#}
+{#                        <a href="#" class="btn btn-primary">View</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+    </section>
+
+{% endblock %}

@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('properties', '0003_alter_property_options'),
+        ("properties", "0003_alter_property_options"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='address',
-            options={'verbose_name_plural': 'Addresses'},
+            name="address",
+            options={"verbose_name_plural": "Addresses"},
         ),
     ]
